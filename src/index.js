@@ -1,1 +1,7 @@
-document.getElementById('root').innerHTML = "<div class='search-bar'><input type='text' placeholder='Search..'/><p>orange</p><p>apple</p></div>";
+let React = require('react');
+let ReactDOM = require('react-dom');
+
+ReactDOM.render(React.createElement(
+  'div', {'className': 'search-bar'},
+  React.createElement('input', {'type': 'text', 'placeholder': 'Search'}, null)),
+  document.getElementById('root'));
