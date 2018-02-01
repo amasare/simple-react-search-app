@@ -1,4 +1,4 @@
-let React = require('react');
+import React from 'react';
 import './searchComponent.scss';
 
 class SearchComponent extends React.Component {
@@ -14,17 +14,13 @@ class SearchComponent extends React.Component {
 
   filterResults(event) {
     const query = event.target.value;
-    const filteredResults = this.state.fruits.filter(function (fruit) {
-      return new RegExp('.*' + query + '.*').test(fruit);
-    });
+    const filteredResults = this.state.fruits.filter((fruit) => new RegExp(`.*${query}.*`).test(fruit));
 
     this.setState({filteredResults})
   }
 
   renderResults(results) {
-    const resultRows = results.map(function (result) {
-      return (<div className='list-item' key={result}>{result}</div>);
-    });
+    const resultRows = results.map((result) => (<div className='list-item' key={result}>{result}</div>));
     return (<div>{resultRows}</div>);
   }
 
