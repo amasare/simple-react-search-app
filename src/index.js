@@ -5,7 +5,6 @@ import {createStore} from 'redux'
 
 import SearchContainer from './SearchContainer.js';
 import resultsReducer from './resultsReducer.js';
-//Step 5
 import queryReducer from "./queryReducer";
 
 let rootReducer = (state = {results: undefined, query: undefined}, action) => {

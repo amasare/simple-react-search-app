@@ -1,19 +1,21 @@
 import {connect} from 'react-redux';
 import SearchComponent from './SearchComponent.jsx';
-
-//Step 2..lets make an action we will save in here
 import {saveQuery} from './actions.js'
+
+
+const filterResults = (query, searchList) => {
+  return searchList.filter((listItem) => new RegExp(`.*${query}.*`).test(listItem));
+};
+
 
 const mapStateToProps = (state) => {
   return {
     searchList: state.results,
-    //Exercise
-    //Extra. step 5
-    query: state.query
+    query: state.query,
+    filteredResults: filterResults(state.query, state.results)
   };
 };
 
-//Step 2
 const mapDispatchToProps = (dispatch) => {
   return {
     saveQuery: query => {
@@ -23,5 +25,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-//Step 3 Connect the dispatch action to the Component
 export default connect(mapStateToProps, mapDispatchToProps)(SearchComponent);

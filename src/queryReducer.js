@@ -1,4 +1,3 @@
-//Step 4
 const initialState = '';
 
 const queryReducer = (state = initialState, action) => {
