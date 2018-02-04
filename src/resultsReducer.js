@@ -1,4 +1,6 @@
-const initialState = ['apple', 'apricot', 'watermelon', 'olives', 'orange'];
+import {fruits} from "./fruits.js";
+
+const initialState = fruits;
 
 const results = (state = initialState, action) => state;
 

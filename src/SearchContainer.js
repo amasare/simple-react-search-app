@@ -1,15 +1,27 @@
-//Step 1
-import SearchComponent from './SearchComponent.jsx';
-//Step 2
 import {connect} from 'react-redux';
+import SearchComponent from './SearchComponent.jsx';
 
-//Step 2
+//Step 2..lets make an action we will save in here
+import {saveQuery} from './actions.js'
+
 const mapStateToProps = (state) => {
   return {
-    searchList: state.results
-  }
+    searchList: state.results,
+    //Exercise
+    //Extra. step 5
+    query: state.query
+  };
+};
+
+//Step 2
+const mapDispatchToProps = (dispatch) => {
+  return {
+    saveQuery: query => {
+      dispatch(saveQuery(query));
+    }
+  };
 };
 
 
-//Step 1. Also in index js, replace SearchComponent with SearchContainer
-export default connect(mapStateToProps)(SearchComponent);
+//Step 3 Connect the dispatch action to the Component
+export default connect(mapStateToProps, mapDispatchToProps)(SearchComponent);

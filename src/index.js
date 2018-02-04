@@ -5,9 +5,14 @@ import {createStore} from 'redux'
 
 import SearchContainer from './SearchContainer.js';
 import resultsReducer from './resultsReducer.js';
+//Step 5
+import queryReducer from "./queryReducer";
 
-let rootReducer = (state = {results: undefined}, action) => {
-  return Object.assign({}, state, {results: resultsReducer(state.results, action)})
+let rootReducer = (state = {results: undefined, query: undefined}, action) => {
+  return Object.assign({}, state, {
+    results: resultsReducer(state.results, action),
+    query: queryReducer(state.query, action)
+  });
 };
 
 let store = createStore(rootReducer, undefined, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
