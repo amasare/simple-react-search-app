@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
 import {createStore} from 'redux'
 
-import SearchContainer from './SearchContainer.js';
+import SearchContainer from './Search/SearchContainer.js';
 import rootReducer from './reducers/index.js';
 
 let store = createStore(rootReducer, undefined, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

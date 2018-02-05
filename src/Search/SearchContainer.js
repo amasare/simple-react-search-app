@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import SearchComponent from './SearchComponent.jsx';
-import {saveQuery} from './actions.js'
+import {saveQuery} from '../actions.js'
 
 
 const filterResults = (query, searchList) => {

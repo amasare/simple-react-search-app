@@ -1,4 +1,4 @@
-import {fruits} from "../fruits.js";
+import {fruits} from "./fruits.js";
 
 const initialState = fruits;
 
