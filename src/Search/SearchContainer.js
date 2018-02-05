@@ -1,28 +1,24 @@
-import {connect} from 'react-redux';
+import Reflux from 'reflux';
+import React from 'react';
 import SearchComponent from './SearchComponent.jsx';
-import {saveQuery} from '../actions.js'
 
+import QueryStore from '../QueryStore'
+import QueryActions from '../QueryStore'
+import ResultsStore from '../ResultsStore'
 
 const filterResults = (query, searchList) => {
   return searchList.filter((listItem) => new RegExp(`.*${query}.*`).test(listItem));
 };
 
+class SearchContainer extends Reflux.Component {
+  constructor(props){
+    super(props);
+    this.stores = [QueryStore, ResultsStore];
+  }
 
-const mapStateToProps = (state) => {
-  return {
-    searchList: state.results,
-    query: state.query,
-    filteredResults: filterResults(state.query, state.results)
-  };
-};
+  render() {
+    return (<SearchComponent query={this.state.query} filteredResults={['implement your results store and use filter method above']} saveQuery={QueryActions.save}/>)
+  }
+}
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    saveQuery: query => {
-      dispatch(saveQuery(query));
-    }
-  };
-};
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchComponent);
+export default SearchContainer;
