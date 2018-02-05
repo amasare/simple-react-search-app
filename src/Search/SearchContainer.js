@@ -3,7 +3,7 @@ import React from 'react';
 import SearchComponent from './SearchComponent.jsx';
 
 import QueryStore from '../QueryStore'
-import QueryActions from '../QueryStore'
+import {QueryActions} from '../QueryStore'
 import ResultsStore from '../ResultsStore'
 
 const filterResults = (query, searchList) => {
@@ -17,7 +17,7 @@ class SearchContainer extends Reflux.Component {
   }
 
   render() {
-    return (<SearchComponent query={this.state.query} filteredResults={['implement your results store and use filter method above']} saveQuery={QueryActions.save}/>)
+    return (<SearchComponent query={this.state.query} filteredResults={filterResults(this.state.query, this.state.results)} saveQuery={QueryActions.save}/>)
   }
 }
 
